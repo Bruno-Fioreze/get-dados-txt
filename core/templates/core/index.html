@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <form id="form_arquivo" action="" method="POST" enctype="multipart/form-data">
+        <div class="row col-lg-12">
+            {% csrf_token %}
+            <div class="row">
+                <input id="file" name="file" type="file"  onchange="submit_form()" class="custom-file-label">
+            </div>
+        </div>
+    </form>
+    <script>
+    window.onload = function() {
+
+    };
+
+    function submit_form(){
+        let file1 = document.querySelector("#file")
+        if(file1.files.length > 0){
+            document.querySelector("#form_arquivo").submit()
+            document.querySelector("#file").value = ''
+        }
+
+    }
+</script>
+</body>
+</html>
